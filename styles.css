@@ -289,7 +289,7 @@ main#maincontent {
 /* Bottom right text */
 .bottom-right {
   position: absolute;
-  bottom: 1px;
+  bottom: 5px;
   right: 5px;
   font-size: 3px;
 }
