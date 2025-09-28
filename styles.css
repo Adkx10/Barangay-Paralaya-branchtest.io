@@ -250,6 +250,7 @@ main#maincontent {
   gap: 1rem;
 }
 
+/* home page facility list image grid */
 .image-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -260,4 +261,19 @@ main#maincontent {
   width: 100%;
   height: auto;
   display: block;
+}
+
+/*image source on top of image https://www.w3schools.com/howto/howto_css_image_text.asp*/
+.container {
+  position: relative;
+  text-align: center;
+  color: black;
+}
+
+/* Bottom left text */
+.bottom-left {
+  position: absolute;
+  bottom: 1px;
+  left: 80px;
+  font-size: 3px;
 }
