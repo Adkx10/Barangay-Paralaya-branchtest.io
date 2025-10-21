@@ -8,7 +8,6 @@
 </head>
 <body>
 
-  <a href="#maincontent">skip to main content</a>
 
  <header>
     <nav>
@@ -25,76 +24,53 @@
   </header>
 
   <main id="maincontent">
-    <section>
-      <h2>facilities & request</h2>
-      <form>
-        <label for="search">search facilities</label>
-        <input type="text" id="search" name="search">
-        <button type="submit">check availability</button>
-      </form>
+    <section id="facilities">
+      <h2>Facilities & Request</h2>
+       <p class="section-desc">
+        Explore our available barangay facilities that you can request for community events, health services, and learning activities.
+      </p>
+
+      <div class="cta-container">
+         <button class="book-now-btn">Book Now</button>
+      </div>
     </section>
 
-    <section>
-      <h2>facilities catalog</h2>
-      <article>
-        <h3>Multipurpose Hall</h3>
+      <h3 class="catalog-heading">Facilities Catalog</h3>
+      <section class="facilities-grid">
+      <article class="facility-card">
+         <h4>Function Hall</h4>
         <figure>
-            <img src="img/facilities/function hall.jpg" alt="multipurpose hall 1 interior view" width="75%" height="40%">
+            <img src="img/facilities/function hall.jpg" alt="multipurpose hall 1 interior view" >
         </figure>
-        <button type="button">book</button>
         <button type="button">view details</button>
       </article>
       
-      <article>
-        <h3>Sports Complex</h3>
+      <article class="facility-card">
+        <h4>Sports Complex</h4>
         <figure>
-          <img src="img/facilities/basketballcourt4.jpg" alt="sports complex interior view" width="75%" height="40%">
+          <img src="img/facilities/basketballcourt4.jpg" alt="sports complex interior view" >
         </figure>
-        <button type="button">book</button>
         <button type="button">view details</button>
       </article>
 
-      <article>
-        <h3>Health Center</h3>
+      <article class="facility-card">
+        <h4>Health Center</h4>
         <figure>
-          <img src="img/facilities/clinic.jpg" alt="health center interior view" width="75%" height="40%">
+          <img src="img/facilities/clinic.jpg" alt="health center interior view">
         </figure>
-        <button type="button">book</button>
         <button type="button">view details</button>
       </article>
 
-      <article>
-        <h3>Library/Study Area</h3>
+      <article class="facility-card">
+        <h4>Library/Study Area</h4>
         <figure>
           <img src="img/facilities/library.jpg" alt="library interior view" width="75%" height="40%">
         </figure>
-        <button type="button">book</button>
         <button type="button">view details</button>
       </article>
     </section>
 
-    <section>
-      <h2>booking form</h2>
-      <form>
-        <label for="facility">facility</label>
-        <input type="text" id="facility" name="facility" placeholder="choose facility">
-
-        <label for="date">date</label>
-        <input type="date" id="date" name="date">
-
-        <label for="time">time</label>
-        <input type="time" id="time" name="time">
-
-        <label for="purpose">purpose</label>
-        <input type="text" id="purpose" name="purpose" placeholder="e.g., birthday, meeting">
-
-        <label for="contact">contact info</label>
-        <input type="text" id="contact" name="contact" placeholder="name, phone, email">
-
-        <button type="submit">book</button>
-        <button type="reset">clear</button>
-      </form>
-    </section>
+  
   </main>
 
 <footer>
