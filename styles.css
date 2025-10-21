@@ -1,16 +1,42 @@
-/* General Layout */
-body {
-  font-family: Arial, Helvetica, sans-serif;
+:root {
+  --green: #006400;
+  --gold: #FFD700;
+  --gray: #333;
+  --light-gray: #f8f8f8;
+}
+
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
-  color: #333333;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #fff;
+  color: var(--gray);
   line-height: 1.6;
 }
 
-/* Header */
+/* Accessibility link */
+a[href="#maincontent"] {
+  position: absolute;
+  top: -40px;
+  left: 10px;
+  background: var(--green);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  z-index: 100;
+}
+a[href="#maincontent"]:focus {
+  top: 10px;
+}
+
+/* HEADER */
 header {
-  background-color: #006400; /* dark green */
+  background-color: var(--green);
   color: #fff;
   padding: 1rem;
 }
@@ -19,277 +45,120 @@ header nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 header nav img {
-  height: 40px;
+  height: 45px;
+}
+
+.nav-links {
+  text-align: right;
 }
 
 header nav a {
   color: #fff;
-  margin: 0 10px;
-  text-decoration: none;
   font-weight: bold;
+  margin: 0 8px;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-header nav a:hover {
-  color: #FFD700; /* gold accent */
+header nav a:hover,
+header nav a.active {
+  color: var(--gold);
 }
 
-/* Section titles */
-section h3 {
-  color: #006400;
-  margin-top: 2rem;
+/* MAIN */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+main h1 {
+  text-align: center;
+  color: var(--green);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* OFFICIALS */
+.officials h2 {
+  text-align: center;
+  color: var(--green);
   margin-bottom: 1rem;
 }
 
-.heroSection {
-  text-align: center;
-  color: #006400;
-  margin-top: 2rem;
-}
-
-
-/* Card-style layout for officials, announcements, facilities 
-.officials, .announcements, .facilities {
+.officialsgrid {
   display: grid;
-  gap: 1rem;
-  padding: 1rem;
-}
-  */
-
-/*.officials {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
-  */
-
-.announcements {
-  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
 }
 
-
-
-/* Individual cards */
-.officials article, .announcements article, .facilities article, .project article {
-  background: #f5f5f5;
+.officialcard {
+  background: var(--light-gray);
   border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 1rem;
+  border-radius: 10px;
   text-align: center;
+  padding: 1rem;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Placeholder photo */
-.photo {
-  width: 100%;
-  height: 120px;
-  background-color: #ccc;
-  border-radius: 4px;
-  margin-bottom: 0.75rem;
+.officialcard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
 
-/* Footer */
+.officialcard img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #eee;
+  margin-bottom: 0.7rem;
+}
+
+.officialcard h3 {
+  color: var(--green);
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+}
+
+.officialcard p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* FOOTER */
 footer {
-  background-color: #006400;
+  background-color: var(--green);
   color: #fff;
-  padding: 1rem;
   text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
 }
 
 footer nav a {
   color: #fff;
+  font-weight: bold;
   margin: 0 8px;
   text-decoration: none;
 }
 
 footer nav a:hover {
-  color: #FFD700;
+  color: var(--gold);
 }
 
-.officials h3 {
-  grid-column: 1 / -1; /* makes the heading span full width */
-  margin-bottom: 1rem;
-}
-
-
-
-/*REFERENCE  IN OTHER SECTIONS*/
-.officials  {
-  padding: 1rem;
-}
-
-.officialscard{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-}
-
-.announcementsCard  {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-}
-
-.projects  {
-  padding: 1rem;
-}
-
-.projectsCard  {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-}
-
-.facilities  {
-  padding: 1rem;
-}
-
-
-.facilitiesCard  {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-}
-
-/* officials page specific styles */
-main#maincontent {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 1.5rem;
-}
-
-/* search / filters */
-.searchfilters form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-}
-
-.searchfilters input[type="search"] {
-  min-width: 220px;
-  padding: 0.45rem 0.6rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.searchfilters button {
-  padding: 0.45rem 0.7rem;
-  border-radius: 4px;
-  border: 1px solid #006400;
-  background: #006400;
-  color: #fff;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.searchfilters button[type="reset"],
-.searchfilters button[type="button"] {
-  background: #f0f0f0;
-  color: #333;
-  border-color: #bbb;
-}
-
-.searchfilters button:hover {
-  opacity: 0.95;
-}
-
-/* officials grid */
-.officialsgrid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  padding: 0.5rem;
-}
-
-/* individual card */
-.officialcard {
-  background: #f5f5f5;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.officialcard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-}
-
-/* image style - circular look (like a portrait) */
-.officialcard img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
-  margin: 0 auto 0.65rem;
-  border: 2px solid #eee;
-}
-
-/* name and position */
-.officialcard h3 {
-  margin: 0.35rem 0 0.2rem;
-  color: #006400;
-  font-size: 1.05rem;
-}
-
-.officialcard p {
-  margin: 0;
-  color: #555;
-  font-size: 0.92rem;
-}
-
-.project-description {
-  display: flex;
-  align-items: right;
-  gap: 1rem;
-}
-
-/* home page facility list image grid */
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-}
-
-.image-grid img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Image source on top of image https://www.w3schools.com/howto/howto_css_image_text.asp*/
-.container {
-  position: relative;
-  text-align: center;
-  color: black;
-}
-
-/* Image hovering effect*/
-.image {
-  opacity: 1;
-  display: block;
-  width: 50%;
-  height: auto;
-  transition: .5s ease;
-  backface-visibility: hidden;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.container:hover .image {
-  opacity: 0.3;
-}
-
-/* Bottom right text */
-.bottom-right {
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-  font-size: 3px;
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  header nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-links {
+    text-align: center;
+  }
 }
