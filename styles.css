@@ -18,6 +18,12 @@ body {
   line-height: 1.6;
 }
 
+main h1,
+.officials h2 {
+  font-weight: 700; 
+}
+
+
 /* Accessibility */
 a[href="#maincontent"] {
   position: absolute;
@@ -352,19 +358,36 @@ main h1 {
   padding: 1rem 0;
 }
 
+
+.officialcard::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.officialcard:hover::after {
+  border-color: var(--gold);
+}
+
 .officialcard {
   background: var(--light-gray);
   border: 1px solid #ddd;
-  border-radius: 10px;
+  border-radius: 12px;
   text-align: center;
   padding: 1rem;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  cursor: pointer;
 }
 
 .officialcard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
 
 .officialcard img {
@@ -415,6 +438,12 @@ footer nav a:hover {
   }
   .nav-links {
     text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .officialsgrid {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   }
 }
 
@@ -1045,3 +1074,30 @@ footer nav a:hover {
     font-size: 0.95rem;
   }
 }
+
+/* modals*/
+.modal-dialog {
+  max-width: 500px;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+}
+
+.modal-content {
+  height: 63%;
+  border-radius: 12px;
+  overflow-y: auto;
+}
+
+#modalContent img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover; 
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
