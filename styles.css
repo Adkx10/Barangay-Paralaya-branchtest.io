@@ -1116,3 +1116,19 @@ footer nav a:hover {
   transform: scale(1.02);
   transition: transform 0.2s ease;
 }
+
+/* facilities interactivity*/
+
+#facFeatures {
+  background-color: #f8f8f8;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+#facFeatures li {
+  padding: 0.2rem 0;
+  color: #333;
+  font-size: 0.95rem;
+}
+
