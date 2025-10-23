@@ -311,6 +311,27 @@
           });
         });
 
+        // progress bar
+        
+              window.addEventListener("load", () => {
+                document.querySelectorAll("#projList article").forEach(article => {
+                  const progressBar = article.querySelector(".progress-bar");
+                  const target = parseInt(article.dataset.progress);
+
+                  let current = 0;
+                  const fill = setInterval(() => {
+                    if (current >= target) {
+                      clearInterval(fill);
+                    } else {
+                      current++;
+                      progressBar.style.width = current + "%";
+                      progressBar.textContent = current + "%";
+                    }
+                  }, 15);
+                });
+              });
+
+
       </script>
 
 
