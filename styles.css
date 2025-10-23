@@ -1132,3 +1132,61 @@ footer nav a:hover {
   font-size: 0.95rem;
 }
 
+/*home-announcements interactivity*/
+
+.clickableCard {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.clickableCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+#announcePreview {
+  row-gap: 2rem;
+}
+
+/* Cards */
+#announcePreview .card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  height: 100%;
+}
+
+#announcePreview .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+#announcePreview .card-img-top {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+#announcePreview .card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 110px;
+}
+
+#announcePreview .card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #198754;
+}
+
+#announcePreview .card-text,
+#announcePreview .small {
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+

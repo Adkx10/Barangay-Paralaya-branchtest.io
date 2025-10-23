@@ -46,7 +46,7 @@
     "date": "2025-07-14",
     "text": "All residents are invited to attend the community meeting at 3PM in the covered court.",
     "details": "The meeting will discuss upcoming barangay projects, safety protocols, and the implementation of new waste segregation policies. Attendance is highly encouraged, as residents’ input is vital for community planning.",
-    "img": "img/meeting.jpg",
+    "img": "img/announcements/communityMeeting.png",
     "postedBy": "Barangay Captain’s Office"
   },
   {
@@ -56,7 +56,7 @@
     "date": "2025-07-03",
     "text": "Curfew hours are strictly enforced from 10PM to 4AM. Let’s cooperate for a safe and peaceful community.",
     "details": "Minors caught violating curfew will be escorted home by barangay patrol. Parents will be notified immediately. Please avoid unnecessary gatherings late at night to maintain peace and order.",
-    "img": "img/safety.jpg",
+    "img": "img/announcements/curfew.png",
     "postedBy": "Barangay Public Safety Office"
   }
 ]
