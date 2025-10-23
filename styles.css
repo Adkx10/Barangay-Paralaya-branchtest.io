@@ -1101,3 +1101,18 @@ footer nav a:hover {
   margin-right: auto;
 }
 
+/*for projects interactivity*/
+
+.fadeItem {
+  opacity: 1;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+.fadeVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+#projList article:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+}
