@@ -41,13 +41,53 @@
             </select>
 
 
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date">
+        <label for="year">Year:</label>
+          <select id="year">
+            <option value="">All</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+          </select>
+
 
        <!-- <button type="button">add project</button>-->
       </form>
+      
 
       <section aria-label="project list" id="projList">
+
+         <!--Barangay Park-->
+        <article class="fadeItem"
+        data-title="Barangay Park"
+        data-status="ongoing"
+        data-progress="40"
+        data-desc="The Barangay Park is an ongoing project designed to create a recreational hub for the local community. 
+              With 40% of the work completed, the project is currently focused on laying the groundwork for key features such as a children's play area, walking paths, and landscaped green spaces. 
+              Once finished, the park will offer a safe and accessible environment for residents of all ages to enjoy outdoor activities and foster a stronger sense of community."
+        data-img="img/projects/brgy park.jpg"
+        data-start="February 2025"
+        data-end="November 2025"
+        data-budget="₱150,000"
+        data-location="Zone 2, Barangay Paralaya (near Barangay Hall)"
+        data-led="Barangay Council and Sangguniang Kabataan"
+        data-impact="Will serve as a safe, accessible recreational space for residents of all ages, encourage physical activity, 
+        and foster stronger community connections and youth engagement.">
+
+
+          <h3>Barangay Park</h3>
+          <p>Status: Ongoing</p>
+           <div class="progress" style="height: 15px; width: 50%;">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%</div>
+            </div>
+          <div class="project-description mt-2">
+                <img src="img/projects/brgy park.jpg" alt="barangay park" width="40%">
+            <p>The Barangay Park is an ongoing project designed to create a recreational hub for the local community. 
+              With 40% of the work completed, the project is currently focused on laying the groundwork for key features such as a children's play area, walking paths, and landscaped green spaces. 
+              Once finished, the park will offer a safe and accessible environment for residents of all ages to enjoy outdoor activities and foster a stronger sense of community.
+            </p>
+           </div>
+             <button class="btn btn-outline-success mt-2" data-bs-toggle="modal" data-bs-target="#projModal">View Details</button>
+            </article>
+    
         
         <article class="fadeItem"
           data-title="Paralaya Estero Cleanup"
@@ -121,43 +161,11 @@
            </div>
                    <button class="btn btn-outline-success mt-2" data-bs-toggle="modal" data-bs-target="#projModal">View Details</button>
         </article>
-
-        
-      <!--Barangay Park-->
-        <article class="fadeItem"
-        data-title="Barangay Park"
-        data-status="ongoing"
-        data-progress="40"
-        data-desc="The Barangay Park is an ongoing project designed to create a recreational hub for the local community. 
-              With 40% of the work completed, the project is currently focused on laying the groundwork for key features such as a children's play area, walking paths, and landscaped green spaces. 
-              Once finished, the park will offer a safe and accessible environment for residents of all ages to enjoy outdoor activities and foster a stronger sense of community."
-        data-img="img/projects/brgy park.jpg"
-        data-start="February 2025"
-        data-end="November 2025"
-        data-budget="₱150,000"
-        data-location="Zone 2, Barangay Paralaya (near Barangay Hall)"
-        data-led="Barangay Council and Sangguniang Kabataan"
-        data-impact="Will serve as a safe, accessible recreational space for residents of all ages, encourage physical activity, 
-        and foster stronger community connections and youth engagement.">
-
-
-          <h3>Barangay Park</h3>
-          <p>Status: Ongoing</p>
-           <div class="progress" style="height: 15px; width: 50%;">
-            <div class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%</div>
-            </div>
-          <div class="project-description mt-2">
-                <img src="img/projects/brgy park.jpg" alt="barangay park" width="40%">
-            <p>The Barangay Park is an ongoing project designed to create a recreational hub for the local community. 
-              With 40% of the work completed, the project is currently focused on laying the groundwork for key features such as a children's play area, walking paths, and landscaped green spaces. 
-              Once finished, the park will offer a safe and accessible environment for residents of all ages to enjoy outdoor activities and foster a stronger sense of community.
-            </p>
-           </div>
-             <button class="btn btn-outline-success mt-2" data-bs-toggle="modal" data-bs-target="#projModal">View Details</button>
-            </article>
-      </section>
+         </section>
           <p id="noRes" class="text-center mt-3 text-muted d-none">No results found</p>
     </section>
+        
+    
 
    <!--
     <section id="project-detail">
@@ -236,100 +244,109 @@
 
       <script>
           document.addEventListener("DOMContentLoaded", () => {
-          const srchBox = document.getElementById('search');
-          const statBox = document.getElementById('status');
-          const cards = document.querySelectorAll('#projList article');
-          const noRes = document.getElementById('noRes');
+  const srchBox = document.getElementById('search');
+  const statBox = document.getElementById('status');
+  const yearBox = document.getElementById('year');
+  const cards = document.querySelectorAll('#projList article');
+  const noRes = document.getElementById('noRes');
 
-          function filterStuff() {
-            const txt = srchBox.value.trim().toLowerCase();
-            const stat = (statBox.value || "").toLowerCase();
-            let showCnt = 0;
+  function filterStuff() {
+    const txt = srchBox.value.trim().toLowerCase();
+    const stat = (statBox.value || "").toLowerCase();
+    const year = yearBox.value;
+    let showCnt = 0;
 
-            cards.forEach(c => {
-              const title = c.dataset.title.toLowerCase();
-              const s = c.dataset.status.toLowerCase();
+    cards.forEach(c => {
+      const title = c.dataset.title.toLowerCase();
+      const s = c.dataset.status.toLowerCase();
+      const start = c.dataset.start;
+      const end = c.dataset.end;
 
-              const matchesSearch = title.includes(txt) || txt === '';
-              const matchesStatus = stat === '' || s === stat;
+      // Check if year matches either start or end date
+      const inYear = !year || start.includes(year) || end.includes(year);
 
-              const isVisible = matchesSearch && matchesStatus;
+      const matchesSearch = title.includes(txt) || txt === '';
+      const matchesStatus = stat === '' || s === stat;
+      const matchesYear = inYear;
 
-              c.classList.toggle('d-none', !isVisible);
-              if (isVisible) showCnt++;
-            });
+      const isVisible = matchesSearch && matchesStatus && matchesYear;
 
-            noRes.classList.toggle('d-none', showCnt > 0);
-          }
+      c.classList.toggle('d-none', !isVisible);
+      if (isVisible) showCnt++;
+    });
 
-      
-          srchBox.addEventListener('input', filterStuff);
-          statBox.addEventListener('change', filterStuff);
+    noRes.classList.toggle('d-none', showCnt > 0);
+  }
 
-  
-          filterStuff();
+  // Event listeners for all filters
+  srchBox.addEventListener('input', filterStuff);
+  statBox.addEventListener('change', filterStuff);
+  yearBox.addEventListener('change', filterStuff);
 
-          const projModal = document.getElementById('projModal');
-          let barTimer;
+  // Initial display
+  filterStuff();
 
-          projModal.addEventListener('show.bs.modal', e => {
-            const art = e.relatedTarget.closest('article');
-            document.getElementById('projModalLabel').textContent = art.dataset.title;
-            document.getElementById('mStatus').textContent = art.dataset.status;
-            document.getElementById('mStart').textContent = art.dataset.start;
-            document.getElementById('mEnd').textContent = art.dataset.end;
-            document.getElementById('mBudget').textContent = art.dataset.budget || 'N/A';
-            document.getElementById('mLoc').textContent = art.dataset.location || 'N/A';
-            document.getElementById('mLed').textContent = art.dataset.led || 'N/A';
-            document.getElementById('mDesc').textContent = art.dataset.desc;
-            document.getElementById('mImpact').textContent = art.dataset.impact || '';
+  // Modal & progress animation
+  const projModal = document.getElementById('projModal');
+  let barTimer;
 
-            const modalImg = document.querySelector('#projModalBody img');
-            modalImg.src = art.dataset.img;
+  projModal.addEventListener('show.bs.modal', e => {
+    const art = e.relatedTarget.closest('article');
+    document.getElementById('projModalLabel').textContent = art.dataset.title;
+    document.getElementById('mStatus').textContent = art.dataset.status;
+    document.getElementById('mStart').textContent = art.dataset.start;
+    document.getElementById('mEnd').textContent = art.dataset.end;
+    document.getElementById('mBudget').textContent = art.dataset.budget || 'N/A';
+    document.getElementById('mLoc').textContent = art.dataset.location || 'N/A';
+    document.getElementById('mLed').textContent = art.dataset.led || 'N/A';
+    document.getElementById('mDesc').textContent = art.dataset.desc;
+    document.getElementById('mImpact').textContent = art.dataset.impact || '';
 
-            const modalBar = document.getElementById('modalProg');
-            modalBar.style.width = '0%';
-            modalBar.textContent = '0%';
+    const modalImg = document.querySelector('#projModalBody img');
+    modalImg.src = art.dataset.img;
 
-            clearInterval(barTimer);
+    const modalBar = document.getElementById('modalProg');
+    modalBar.style.width = '0%';
+    modalBar.textContent = '0%';
 
-            let valNow = 0;
-            const valTarget = parseInt(art.dataset.progress);
-            barTimer = setInterval(() => {
-              if (valNow >= valTarget) {
-                clearInterval(barTimer);
-              } else {
-                valNow++;
-                modalBar.style.width = valNow + '%';
-                modalBar.textContent = valNow + '%';
-              }
-            }, 12);
-          });
+    clearInterval(barTimer);
 
-          projModal.addEventListener('hidden.bs.modal', () => {
-            clearInterval(barTimer);
-          });
-        });
+    let valNow = 0;
+    const valTarget = parseInt(art.dataset.progress);
+    barTimer = setInterval(() => {
+      if (valNow >= valTarget) {
+        clearInterval(barTimer);
+      } else {
+        valNow++;
+        modalBar.style.width = valNow + '%';
+        modalBar.textContent = valNow + '%';
+      }
+    }, 12);
+  });
 
-        // progress bar
-        
-              window.addEventListener("load", () => {
-                document.querySelectorAll("#projList article").forEach(article => {
-                  const progressBar = article.querySelector(".progress-bar");
-                  const target = parseInt(article.dataset.progress);
+  projModal.addEventListener('hidden.bs.modal', () => {
+    clearInterval(barTimer);
+  });
+});
 
-                  let current = 0;
-                  const fill = setInterval(() => {
-                    if (current >= target) {
-                      clearInterval(fill);
-                    } else {
-                      current++;
-                      progressBar.style.width = current + "%";
-                      progressBar.textContent = current + "%";
-                    }
-                  }, 15);
-                });
-              });
+// Animate progress bars on load
+window.addEventListener("load", () => {
+  document.querySelectorAll("#projList article").forEach(article => {
+    const progressBar = article.querySelector(".progress-bar");
+    const target = parseInt(article.dataset.progress);
+
+    let current = 0;
+    const fill = setInterval(() => {
+      if (current >= target) {
+        clearInterval(fill);
+      } else {
+        current++;
+        progressBar.style.width = current + "%";
+        progressBar.textContent = current + "%";
+      }
+    }, 15);
+  });
+});
 
 
       </script>
