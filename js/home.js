@@ -276,3 +276,88 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const officialPreview = document.getElementById("officialPreview");
+  const officialModal = new bootstrap.Modal(document.getElementById("officialModal"));
+
+  // featured officials
+  const officials = [
+
+    {
+      name: "Manuel Garcia III",
+      pos: "Barangay Captain",
+      term: "2022–Present",
+      desc: "Dedicated to leading Barangay Paralaya with transparency and compassion. Focuses on improving local infrastructure, disaster response, and community safety.",
+      advocacy: "A safer, cleaner, and united Barangay Paralaya.",
+      contact: "manuelgarcia@paralaya.gmail.com",
+      img: "img/officials/manuel.garcia.III.png",
+    },
+
+
+    {
+      name: "Bianca Sofia Aquino",
+      pos: "Barangay Secretary",
+      term: "2022–Present",
+      desc: "Responsible for maintaining barangay records and ensuring accurate documentation of community events and certifications.",
+      advocacy: "Promotes transparency and efficient government service.",
+      contact: "biancaaquino@paralaya.gmail.com",
+      img: "img/officials/bianca.sofia.aquino.png"
+    },
+    
+    {
+      name: "Roderick Alvaro",
+      pos: "Barangay Tanod",
+      term: "2022–Present",
+      desc: "Conducts barangay patrols and helps maintain peace and security in the community.",
+      advocacy: "Dedicated to peacekeeping and maintaining community order.",
+      contact: "roderickalvaro@paralaya.gmail.com",
+      img: "img/officials/roderick.alvaro.png"
+    },
+    {
+      name: "Brad San Jose",
+      pos: "Barangay Councilor",
+      term: "2022–Present",
+      desc: "Focuses on peace and order initiatives and helps coordinate barangay patrols and community events.",
+      advocacy: "Promotes unity, safety, and discipline within the barangay.",
+      contact: "bradsanjose@paralaya.gmail.com",
+      img: "img/officials/brad.sanjose.png"
+    }
+  ];
+
+  renderOfficials(officials);
+
+  function renderOfficials(arr) {
+    officialPreview.innerHTML = "";
+    arr.forEach(o => {
+      const col = document.createElement("div");
+      col.className = "col-md-3 col-sm-6 fadeItem";
+
+      col.innerHTML = `
+        <div class="card shadow-sm border-0 clickableCard text-center" style="cursor:pointer;">
+          <img src="${o.img}" class="rounded-circle mx-auto mt-3" width="120" height="120" alt="${o.name}">
+          <div class="card-body">
+            <h6 class="card-title text-success fw-semibold">${o.name}</h6>
+            <p class="small text-muted mb-0">Role: ${o.pos}</p>
+          </div>
+        </div>
+      `;
+
+    
+      col.querySelector(".clickableCard").addEventListener("click", () => {
+        document.getElementById("officialModalLabel").textContent = o.name;
+        document.getElementById("offImg").src = o.img;
+        document.getElementById("offPos").textContent = o.pos;
+        document.getElementById("offTerm").textContent = o.term;
+        document.getElementById("offDesc").textContent = o.desc;
+        document.getElementById("offAdv").textContent = o.advocacy;
+        document.getElementById("offContact").textContent = o.contact;
+
+        officialModal.show();
+      });
+
+      officialPreview.appendChild(col);
+      setTimeout(() => col.classList.add("fadeVisible"), 100);
+    });
+  }
+});

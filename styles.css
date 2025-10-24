@@ -1219,3 +1219,25 @@ footer nav a:hover {
   justify-content: center;
   min-height: 90px;
 }
+ 
+/*officials card*/
+#officialPreview .card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background-color: #ffffff;
+}
+
+#officialPreview .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+#officialPreview img {
+  object-fit: cover;
+}
+
+#officialPreview .card-body {
+  padding: 1rem;
+}

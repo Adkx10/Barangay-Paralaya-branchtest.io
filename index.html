@@ -134,8 +134,12 @@
 
 
      <!-- Featured Officials -->
-    <section class="officials">
-      <h3>Featured Official Snapshot</h3>
+    <section class="officials py-4">
+      <div class="container text-center">
+    <h3 class="text-success mb-4">Featured Official Snapshot</h3>
+    <div id="officialPreview" class="row g-3 justify-content-center">
+
+
     <div class="officialscard">
       <article>
         <div><img src="img/officials/bianca.sofia.aquino.png" width=40% height=100%></div>
@@ -227,6 +231,26 @@
       <p><strong>Capacity:</strong> <span id="facCap"></span></p>
       <p><strong>Operating Hours:</strong> <span id="facTime"></span></p>
       <ul id="facFeatures" class="text-start"></ul>
+    </div>
+  </div>
+</div>
+
+<!-- officialsmodal -->
+<div class="modal fade" id="officialModal" tabindex="-1" aria-labelledby="officialModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow">
+      <div class="modal-header" style="background-color:#198754; color:white;">
+        <h5 class="modal-title" id="officialModalLabel"></h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img id="offImg" src="" alt="" class="img-fluid rounded-circle mb-3" width="120">
+        <p><strong>Position:</strong> <span id="offPos"></span></p>
+        <p><strong>Term:</strong> <span id="offTerm"></span></p>
+        <p id="offDesc"></p>
+        <p><em><strong>Advocacy:</strong> <span id="offAdv"></span></em></p>
+        <p><strong>Contact:</strong> <span id="offContact"></span></p>
+      </div>
     </div>
   </div>
 </div>
