@@ -68,13 +68,16 @@
     </section>
 
     <!-- Ongoing Projects -->
-    <section class="project">
-      <h3>Ongoing Projects Preview</h3>
+    <section class="project py-4">
+      <div class="container text-center">
+      <h3 class="text-success mb-4">Ongoing Projects Preview</h3>
+      <div id="projPreview" class="row g-3 justify-content-center">
+
     <div class="projectsCard">
       <article>
         <div><img src="img/projects/estero cleanup.jpg" width=75% height=75%></div>
         <h4>Paralaya Estero Cleanup</h4>
-        <p>Short project details...</p>
+        <p>A community effort to clean and rehabilitate the main estero in Barangay Paralaya</p>
       </article>
 
       <article>
@@ -89,11 +92,16 @@
         <p>Short project details...</p>
       </article>
     </div>
+  </div>
+    </div>
     </section>
 
     <!-- Facilities -->
-    <section class="facilities">
-      <h3>Facilities</h3>
+    <section class="facilities py-4">
+      <div class="container text-center">
+      <h3 class="text-success mb-4">Facilities</h3>
+      <div id="facPreview" class="row g-3 justify-content-center">
+
     <div class="facilitiesCard">
       <article>
         <div class="image-grid">
@@ -120,7 +128,10 @@
 
 
     </div>
+    </div>
+    </div>
     </section>
+
 
      <!-- Featured Officials -->
     <section class="officials">
@@ -181,6 +192,44 @@
   </div>
 </div>
 
+ <!-- projectsModal -->
+<div class="modal fade" id="projModal" tabindex="-1" aria-labelledby="projModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content p-3">
+      <h5 id="projModalLabel" class="text-success fw-bold mb-3"></h5>
+      <div id="projModalBody">
+        <img src="" alt="" class="img-fluid rounded mb-3">
+        <p><strong>Status:</strong> <span id="mStatus"></span></p>
+        <p><strong>Start:</strong> <span id="mStart"></span></p>
+        <p><strong>End:</strong> <span id="mEnd"></span></p>
+        <p><strong>Budget:</strong> ₱<span id="mBudget"></span></p>
+        <p><strong>Location:</strong> <span id="mLoc"></span></p>
+        <p><strong>Led by:</strong> <span id="mLed"></span></p>
+        <p id="mDesc"></p>
+        <p><em id="mImpact"></em></p>
+        <div class="progress mt-3">
+          <div id="modalProg" class="progress-bar bg-success" style="width:0%">0%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- facilityModal -->
+<div class="modal fade" id="facModal" tabindex="-1" aria-labelledby="facTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content p-3">
+      <h5 id="facTitle" class="text-success fw-bold mb-3"></h5>
+      <img id="facImg" src="" alt="" class="img-fluid rounded mb-3">
+      <p id="facDesc"></p>
+      <p><strong>Led by:</strong> <span id="facLed"></span></p>
+      <p><strong>Capacity:</strong> <span id="facCap"></span></p>
+      <p><strong>Operating Hours:</strong> <span id="facTime"></span></p>
+      <ul id="facFeatures" class="text-start"></ul>
+    </div>
+  </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
