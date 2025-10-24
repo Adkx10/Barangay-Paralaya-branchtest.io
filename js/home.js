@@ -7,11 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalImg = document.getElementById("modalImg");
 
   fetch("data/announcements.json")
-    .then(res => res.json())
-    .then(data => {
-      const latest = data.slice(0, 3); 
-      renderPreview(latest);
-    })
+  .then(res => res.json())
+  .then(data => {
+    const latest = data.slice(0, 3); 
+    renderPreview(latest);
+    document.getElementById("announcePreview").classList.remove("d-none"); // show only after render
+  })
     .catch(err => {
       previewArea.innerHTML = `<p class="text-danger">Error loading announcements.</p>`;
       console.error(err);
@@ -58,9 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 }
 
-});
 
-document.addEventListener("DOMContentLoaded", () => {
+
   const projPreview = document.getElementById("projPreview");
   const projModal = new bootstrap.Modal(document.getElementById("projModal"));
 
@@ -161,11 +161,10 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => col.classList.add("fadeVisible"), 100);
     });
   }
-});
+
 
 // facility
 
-document.addEventListener("DOMContentLoaded", () => {
   const facPreview = document.getElementById("facPreview");
   const facModal = new bootstrap.Modal(document.getElementById("facModal"));
 
@@ -275,9 +274,8 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => col.classList.add("fadeVisible"), 100);
     });
   }
-});
 
-document.addEventListener("DOMContentLoaded", () => {
+
   const officialPreview = document.getElementById("officialPreview");
   const officialModal = new bootstrap.Modal(document.getElementById("officialModal"));
 
